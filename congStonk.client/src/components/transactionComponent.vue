@@ -1,7 +1,7 @@
 <template>
   <div class="transactionComponent col-5 card">
-    <h3 class="text-white">
-      {{ transProp.name }}
+    <h3>
+      {{ transProp.Representative }}
     </h3>
   </div>
 </template>
@@ -20,7 +20,7 @@ export default {
   },
   setup(props) {
     const state = reactive({
-      transProp: computed(() => AppState.transaction)
+      transProp: computed(() => AppState.transactions)
     })
     return {
       state
