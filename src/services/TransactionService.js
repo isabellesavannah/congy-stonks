@@ -1,11 +1,11 @@
 import { AppState } from '../AppState'
 import { logger } from '../utils/Logger'
-import { api } from './AxiosService'
+import { congApi } from './AxiosService'
 
 class TransactionService {
   async getTrans() {
     try {
-      const res = await api.get('')
+      const res = await congApi.get('')
       AppState.transactions = res.data
       console.log(res.data)
     } catch (err) {
