@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"path": "congStonk.client"
+		},
+		{
+			"path": "congStonk.server"
+		}
+	],
+	"settings": {}
+}
