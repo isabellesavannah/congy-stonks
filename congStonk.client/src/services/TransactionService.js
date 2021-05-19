@@ -12,6 +12,15 @@ class TransactionService {
       logger.error(err)
     }
   }
+
+  async getTicker(id) {
+    try {
+      const res = await api.get('api/congTicker/' + id)
+      AppState.tickers = res.data
+    } catch (err) {
+      logger.error(err)
+    }
+  }
 }
 
 export const transactionService = new TransactionService()

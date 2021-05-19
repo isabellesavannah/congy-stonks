@@ -4,7 +4,7 @@ export const baseURL = window.location.origin.includes('localhost') ? 'http://lo
 
 export const api = Axios.create({
   baseURL,
-  timeout: 8000
+  timeout: 80000
 })
 
 export const setBearer = function(bearer) {
