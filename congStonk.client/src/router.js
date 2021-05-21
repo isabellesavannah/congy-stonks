@@ -27,6 +27,12 @@ const routes = [
     name: 'Transaction',
     component: loadPage('TransactionPage'),
     beforeEnter: authGuard
+  },
+  {
+    path: '/tickerPage/:id',
+    name: 'TickerPage',
+    component: loadPage('TickerPage'),
+    beforeEnter: authGuard
   }
 ]
 

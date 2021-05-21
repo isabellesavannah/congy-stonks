@@ -1,11 +1,23 @@
 <template>
   <div class="transactionComponent col-5 card">
-    <h3>
-      <!-- {{ transProp.Ticker }} -->
+    <h2>
       {{ transProp.Representative }}
-      {{ transProp.Ticker }}
-      {{ ticker }}
-    </h3>
+    </h2>
+    <router-link v-if="transProp.Ticker == transProp.Ticker" :to="{ name: 'TickerPage', params: { id: transProp.Ticker } }" class="nav-link">
+      <h2>
+        {{ transProp.Ticker }}
+      </h2>
+    </router-link>
+    <h4>
+      <span v-if="transProp.Transaction.includes('Sale')" class="text-danger">Sale</span>
+      <span v-else class="text-success">Purchase</span>
+    </h4>
+    <p>
+      {{ transProp.Range }}
+    </p>
+    <p>
+      {{ new Date (transProp.TransactionDate).toDateString() }}
+    </p>
   </div>
 </template>
 
@@ -25,9 +37,10 @@ export default {
   setup(props) {
     const state = reactive({
       transProp: computed(() => AppState.transactions),
-      ticker: computed(() => AppState.tickers)
+      rep: computed(() => AppState.rep)
     })
-    onMounted(() => transactionService.getTicker())
+    onMounted(() => transactionService.getAllTickersByRep())
+    onMounted(() => transactionService.getTrans())
     return {
       state
     }
