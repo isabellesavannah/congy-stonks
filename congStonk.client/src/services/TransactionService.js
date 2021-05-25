@@ -21,22 +21,13 @@ class TransactionService {
     }
   }
 
-  async getAllTickersByRep(rep) {
+  async getAllTickersByTicker(rep) {
     try {
       const res = await api.get('api/congTicker/' + rep)
       AppState.rep = res.data
       // console.log(res.data)
     } catch (error) {
       logger.error(error)
-    }
-  }
-
-  async getTicker(id) {
-    try {
-      const res = await api.get('api/congTicker/' + id)
-      AppState.tickers = res.data
-    } catch (err) {
-      logger.error(err)
     }
   }
 }

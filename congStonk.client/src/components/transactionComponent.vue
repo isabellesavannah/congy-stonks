@@ -39,7 +39,7 @@ export default {
       transProp: computed(() => AppState.transactions),
       rep: computed(() => AppState.rep)
     })
-    onMounted(() => transactionService.getAllTickersByRep())
+    onMounted(() => transactionService.getAllTickersByTicker())
     onMounted(() => transactionService.getTrans())
     return {
       state
