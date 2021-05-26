@@ -13,7 +13,7 @@ export default {
   name: 'Home',
   setup() {
     const state = reactive({
-      trans: computed(() => AppState.transactions.splice(0, 10))
+      trans: computed(() => AppState.transactions.splice(0, 25))
     })
     onMounted(() => transactionService.getTrans())
     return { state }
