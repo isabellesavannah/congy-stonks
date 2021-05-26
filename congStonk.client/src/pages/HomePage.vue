@@ -1,6 +1,6 @@
 <template>
   <div class="row home flex-grow-1 d-flex flex-column align-items-center justify-content-center">
-    <transaction-component v-for="t in state.trans" :key="t.ticker" :trans-prop="t" />
+    <transaction-component v-for="(t,i) in state.trans" :key="i" :trans-prop="t" />
   </div>
 </template>
 
@@ -13,7 +13,7 @@ export default {
   name: 'Home',
   setup() {
     const state = reactive({
-      trans: computed(() => AppState.transactions)
+      trans: computed(() => AppState.transactions.splice(0, 10))
     })
     onMounted(() => transactionService.getTrans())
     return { state }

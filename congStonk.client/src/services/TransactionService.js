@@ -14,6 +14,7 @@ class TransactionService {
   async getTrans() {
     try {
       const res = await api.get('api/congLive')
+      // TODO Sort res.data
       AppState.transactions = res.data
       // console.log(res.data)
     } catch (err) {
@@ -21,10 +22,10 @@ class TransactionService {
     }
   }
 
-  async getAllTickersByTicker(rep) {
+  async getAllTickersByTicker(Ticker) {
     try {
-      const res = await api.get('api/congTicker/' + rep)
-      AppState.rep = res.data
+      const res = await api.get('api/congTicker/' + Ticker)
+      AppState.tickers = res.data
       // console.log(res.data)
     } catch (error) {
       logger.error(error)

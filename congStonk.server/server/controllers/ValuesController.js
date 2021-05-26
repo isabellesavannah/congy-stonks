@@ -7,7 +7,7 @@ export class ValuesController extends BaseController {
     super("api");
     this.router
       .get("/congLive", this.getLive)
-      .get("/congTicker/:id", this.getTickers)
+      .get("/congTicker/:ticker", this.getTickers)
   }
 
   /**
@@ -26,8 +26,8 @@ export class ValuesController extends BaseController {
   }
   async getTickers(req, res, next){
     try{
-    const tickers = await congApi.get(`historical/congresstrading/${req.params.id}`)
-    res.send(tickers.data)
+    const ticker = await congApi.get(`historical/congresstrading/${req.params.ticker}`)
+    res.send(ticker.data)
     } catch (error){
       next(error);
     }

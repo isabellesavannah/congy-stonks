@@ -3,7 +3,7 @@
     <h2>
       {{ transProp.Representative }}
     </h2>
-    <router-link v-if="transProp.Ticker == transProp.Ticker" :to="{ name: 'TickerPage', params: { id: transProp.Ticker } }" class="nav-link">
+    <router-link :to="{ name: 'TickerPage', params: { ticker: transProp.Ticker } }" class="nav-link">
       <h2>
         {{ transProp.Ticker }}
       </h2>
@@ -39,8 +39,7 @@ export default {
       transProp: computed(() => AppState.transactions),
       rep: computed(() => AppState.rep)
     })
-    onMounted(() => transactionService.getAllTickersByTicker())
-    onMounted(() => transactionService.getTrans())
+    // onMounted(() => transactionService.getAllTickersByTicker())
     return {
       state
     }
