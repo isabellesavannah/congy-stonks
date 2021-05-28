@@ -1,6 +1,6 @@
 <template>
-  <div class="row ticker flex-grow-1 d-flex flex-column align-items-center justify-content-center">
-    <transaction-component v-for="(t,i) in state.tickers" :key="i" :trans-prop="t" />
+  <div class="row rep flex-grow-1 d-flex flex-column align-items-center justify-content-center">
+    <transaction-component v-for="(t,i) in state.rep" :key="i" :trans-prop="t" />
   </div>
 </template>
 
@@ -15,10 +15,9 @@ export default {
   setup() {
     const route = useRoute()
     const state = reactive({
-      // trans: computed(() => AppState.transactions),
-      tickers: computed(() => AppState.tickers)
+      rep: computed(() => AppState.rep)
     })
-    onMounted(() => transactionService.getAllTickersByTicker(route.params.ticker))
+    onMounted(() => transactionService.getRep(route.params.rep))
     return { state }
   },
   components: {}

@@ -14,10 +14,7 @@ class TransactionService {
   async getTrans() {
     try {
       const res = await api.get('api/congLive')
-      // TODO Sort res.data res.data.sort((a,b)=> new Date(a.transacitionDate).getTime() - new Date(b.transactionDate).getTime)
-
       AppState.transactions = res.data.sort((a, b) => new Date(b.TransactionDate).getTime() - new Date(a.TransactionDate).getTime())
-      // console.log(res.data)
     } catch (err) {
       logger.error(err)
     }
@@ -27,7 +24,15 @@ class TransactionService {
     try {
       const res = await api.get('api/congTicker/' + Ticker)
       AppState.tickers = res.data
-      // console.log(res.data)
+    } catch (error) {
+      logger.error(error)
+    }
+  }
+
+  async getRep(Rep) {
+    try {
+      const res = await api.get('api/congRep/' + Rep)
+      AppState.rep = res.data
     } catch (error) {
       logger.error(error)
     }

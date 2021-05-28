@@ -8,6 +8,7 @@ export class ValuesController extends BaseController {
     this.router
       .get("/congLive", this.getLive)
       .get("/congTicker/:ticker", this.getTickers)
+      .get("/congRep/:rep", this.getRep)
   }
 
   /**
@@ -28,6 +29,14 @@ export class ValuesController extends BaseController {
     try{
     const ticker = await congApi.get(`historical/congresstrading/${req.params.ticker}`)
     res.send(ticker.data)
+    } catch (error){
+      next(error);
+    }
+  }
+  async getRep(req, res, next){
+    try{
+    const rep = await congApi.get(`historical/congresstrading/${req.params.rep}`)
+    res.send(rep.data)
     } catch (error){
       next(error);
     }

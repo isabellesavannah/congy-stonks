@@ -1,8 +1,11 @@
 <template>
-  <div class="transactionComponent col-5 card">
-    <h2>
-      {{ transProp.Representative }}
-    </h2>
+  <div class="transactionComponent col-5 card text-center">
+    <router-link :to="{ name: 'RepPage', params: { rep: transProp.Representative } }" class="nav-link">
+      <h2>
+        {{ transProp.Representative }}
+      </h2>
+    </router-link>
+
     <router-link :to="{ name: 'TickerPage', params: { ticker: transProp.Ticker } }" class="nav-link">
       <h2>
         {{ transProp.Ticker }}

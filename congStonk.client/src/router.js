@@ -36,6 +36,13 @@ const routes = [
     component: loadPage('TickerPage')
     // TODO when authentication works
     // beforeEnter: authGuard
+  },
+  {
+    path: '/repPage/:rep',
+    name: 'RepPage',
+    component: loadPage('RepPage')
+    // TODO when authentication works
+    // beforeEnter: authGuard
   }
 ]
 
