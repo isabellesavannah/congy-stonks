@@ -40,7 +40,8 @@ export default {
   setup(props) {
     const state = reactive({
       transProp: computed(() => AppState.transactions),
-      rep: computed(() => AppState.rep)
+      rep: computed(() => AppState.rep),
+      gme: computed(() => AppState.gme)
     })
     // onMounted(() => transactionService.getAllTickersByTicker())
     return {
